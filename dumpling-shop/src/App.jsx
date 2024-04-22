@@ -1,15 +1,17 @@
-import { useState } from 'react'
-import Navbar from './components/Navbar/navbar'
-import Display from './components/Display'
-import './App.css'
 
+import { Outlet } from 'react-router-dom';
+import Navbar from './components/Navbar/navbar';
+import './App.css';
 
 function App() {
   return (
-    <div>
+    <>
       <Navbar />
-    </div>
-  )
+      <main className="mx-3">
+        <Outlet /> 
+      </main>
+    </>
+  );
 }
 
-export default App
+export default App;
