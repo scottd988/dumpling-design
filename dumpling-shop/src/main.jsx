@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.jsx';
-import Home from './Pages/Home';
 import Cart from './Pages/Cart.jsx';
 import LoginSignup from './Pages/LoginSignup';
 import Product from './Pages/Product';
@@ -11,6 +10,9 @@ import ShopCategory from './Pages/ShopCategory';
 import Error from './Pages/Error';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
+import men_banner from './components/Assets/banner_mens.png'
+import women_banner from './components/Assets/banner_women.png'
+import kids_banner from './components/Assets/banner_kids.png'
 
 const router = createBrowserRouter([
   {
@@ -18,15 +20,15 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <Error />,
     children: [
-      { index: true, element: <Home /> },
+      { index: true, element: <Shop /> },
       { path: 'login', element: <LoginSignup /> },
       { path: 'Product', element: <Product /> },
+      { path: 'Product/:productId', element: <Product />},
       { path: 'Shop', element: <Shop /> },
       { path: 'Shop/:category', element: <ShopCategory /> },
-      { path: 'mens', element: <ShopCategory category="mens" />},
-      { path: 'womens', element: <ShopCategory category="womens" />},
-      { path: 'kids', element: <ShopCategory category="kids" />},
-      { path: 'productId', element: <Product />},
+      { path: 'mens', element: <ShopCategory banner={men_banner} category="mens" />},
+      { path: 'womens', element: <ShopCategory banner={women_banner} category="womens" />},
+      { path: 'kids', element: <ShopCategory banner={kids_banner} category="kids" />},
       { path: 'cart', element: <Cart /> },
     ],
   },
